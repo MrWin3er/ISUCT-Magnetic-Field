@@ -1,0 +1,54 @@
+﻿<Window x:Class="Diplom_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom_WPF"
+        mc:Ignorable="d"
+        Title="Magnetic Field" Width="800" Height="600">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition  Height="Auto"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="425"></ColumnDefinition>
+			<ColumnDefinition Width="Auto"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<Image Name="Equipment" Height="400" Width="400" Grid.Column="0" Grid.Row="0" Source="/Resources/Equipment.png" HorizontalAlignment="Left"/>
+		<Image Name="CompasImage" Height="300" Width="300" Grid.Column="1" Grid.Row="0" Source="/Resources/Compass.png" HorizontalAlignment="Left" Margin="40,10,0,90"/>
+		<Image Name="CompasArrow" Height="300"  Width="300" Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/Resources/Arrow.png" Margin="46,2,0,0"/>
+		<Image Grid.Column="0" Grid.Row="0" Width="40" Height="40" Source="Resources/Source.png" Margin="375,317,10,43"/>
+
+		<Button Content="---&gt;" HorizontalAlignment="Right"  Height="40" Width="100" Grid.Column="1" Grid.Row="0" Click="Button_Click" Margin="0,315,4,45"/>
+		<Button Content="&lt;---" VerticalAlignment="Top" Height="40" HorizontalAlignment="Right" Width="100" Grid.Column="1" Grid.Row="0" Margin="0,315,200,0" Click="Button_Click_1"/>
+
+		<TextBlock HorizontalAlignment="Left" Margin="26,36,0,0" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Text="Направление тока" VerticalAlignment="Top" Height="16" Width="128" FontSize="14"/>
+		<TextBlock HorizontalAlignment="Left" Margin="26,80,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Реостат" VerticalAlignment="Top" Height="16" Width="128" FontSize="14"/>
+		<ComboBox x:Name="Polar" HorizontalAlignment="Left" Margin="181,36,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+			<ComboBoxItem Content="Прямой"/>
+			<ComboBoxItem Content="Обратный"/>
+
+		</ComboBox>
+		<Slider Name="Reostate" HorizontalAlignment="Left" Margin="181,80,0,0" Grid.Row="1" VerticalAlignment="Top" Width="214" Maximum="100" ValueChanged="Reostate_ValueChanged"/>
+		<RadioButton Name="SourceON" GroupName="On/Off" Content="Вкл Источник тока" HorizontalAlignment="Left" Margin="40,109,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.Column="1" Checked="SourceON_Checked"/>
+		<RadioButton x:Name="SourceOFF" GroupName="On/Off" Content="Выкл Источник тока" HorizontalAlignment="Left" Margin="40,129,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.Column="1" Checked="SourceOFF_Checked"/>
+		<TextBlock HorizontalAlignment="Left" Margin="26,118,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Количество витков" VerticalAlignment="Top" FontSize="14"/>
+		<ComboBox x:Name="Count" HorizontalAlignment="Left" Margin="181,118,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="Count_SelectionChanged" SelectedIndex="0">
+			<ComboBoxItem Content="1" IsSelected="True"/>
+			<ComboBoxItem Content="2"/>
+			<ComboBoxItem Content="3"/>
+			<ComboBoxItem Content="4"/>
+			<ComboBoxItem Content="5"/>
+			<ComboBoxItem Content="6"/>
+
+		</ComboBox>
+		<TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="40,42,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="77" FontSize="14"><Run Language="ru-ru" Text="Сила тока"/></TextBlock>
+		<TextBox x:Name="Amper" Grid.Column="1" HorizontalAlignment="Left" Margin="134,43,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="69" IsEnabled="False"/>
+
+		<Line Name="TestLine" Stroke="Black" StrokeThickness="4" 
+			  X1="10" Y1="10"
+			  X2="30" Y2="10"
+			  />
+	</Grid>
+</Window>

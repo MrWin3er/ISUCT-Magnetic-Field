@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>Diplom_WPF</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Arrow.png" />
+    <None Remove="Resources\Compas.png" />
+    <None Remove="Resources\Compass.png" />
+    <None Remove="Resources\Equipment.png" />
+    <None Remove="Resources\Source.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Arrow.png" />
+    <Resource Include="Resources\Compass.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Equipment.png" />
+    <Resource Include="Resources\Source.png" />
+  </ItemGroup>
+
+</Project>
